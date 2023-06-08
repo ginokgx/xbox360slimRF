@@ -8,8 +8,11 @@ I used the Wemos D1 Mini microcontroller due to its low cost (about 1 USD), and 
 Although the Wemos can be programmed through its USB interface, an external USB connection is needed to send data from the receiver module.
 Just like with old modules, once connected to de PC you will need to install the wireless receiver drivers to work.
 
+
 The connection scheme would be as follows:
 ![alt text](https://github.com/ginokgx/xbox360slimRF/blob/main/Scheme.png)
 
+
 And here’s an example of it working:
+
 ![alt text](https://github.com/ginokgx/xbox360slimRF/blob/main/Sync.gif)
