@@ -3,7 +3,6 @@
 <meta name="google-site-verification" content="e67SKsRHFHARxy5BudJ2cV-yS8nlcUdC6oLOGuThBbA" />
   </HEAD>
 </HEAD>
-# xbox360slimRF
 This is a project to use the wireless receiver of an Xbox 360 Slim on a PC, while maintaining the synchronization function for new controllers
 
 Unlike other projects that use the receiver from older models (Xbox 360 Fat), this one works with the Slim model. I know there is information on how to connect the module via USB, but I couldn’t find any that implemented the synchronization function for this specific model.
