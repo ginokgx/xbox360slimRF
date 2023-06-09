@@ -16,3 +16,5 @@ The connection scheme would be as follows:
 And here’s an example of it working:
 
 ![alt text](https://github.com/ginokgx/xbox360slimRF/blob/main/Sync.gif)
+
+google-site-verification: google08344ec47344bd72.html
