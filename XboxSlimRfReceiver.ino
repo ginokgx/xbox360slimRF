@@ -4,12 +4,10 @@
 
 int start_cmd[10] = {0,0,0,0,0,1,0,0,1,0}; //Start Module (Needed for the sync led animation)
 int power_cmd[10] = {0,0,1,0,0,0,0,1,0,1}; //Makes the startup animation on the ring of light.
-
 int sync_cmd[11] = {0,0,0,0,0,0,0,1,0,0,1}; //Initiates the sync process.
 volatile boolean sync_enable = 0;
 
 void sendData11(int cmd_do[]) {
-
   pinMode(data_pin, OUTPUT);
   digitalWrite(data_pin, LOW);    //start sending data.
   int prev = 1;
