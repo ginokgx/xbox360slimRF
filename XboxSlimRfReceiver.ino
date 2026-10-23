@@ -7,30 +7,11 @@ int power_cmd[10] = {0,0,1,0,0,0,0,1,0,1}; //Makes the startup animation on the 
 int sync_cmd[11] = {0,0,0,0,0,0,0,1,0,0,1}; //Initiates the sync process.
 volatile boolean sync_enable = 0;
 
-void sendData11(int cmd_do[]) {
+void sendData(int cmd_do[], int num_bytes) {
   pinMode(data_pin, OUTPUT);
   digitalWrite(data_pin, LOW);    //start sending data.
   int prev = 1;
-  for(int i = 0; i < 11; i++){
-
-    while (prev == digitalRead(clock_pin)){} //detects change in clock
-    prev = digitalRead(clock_pin);
-      // should be after downward edge of clock, so send bit of data now
-    delayMicroseconds(1000);
-    digitalWrite(data_pin, cmd_do[i]);
-
-    while (prev == digitalRead(clock_pin)){} //detects upward edge of clock
-    prev = digitalRead(clock_pin);
-  }
-  digitalWrite(data_pin, HIGH);
-  pinMode(data_pin, INPUT);
-}
-
-void sendData10(int cmd_do[]) {
-  pinMode(data_pin, OUTPUT);
-  digitalWrite(data_pin, LOW);    //start sending data.
-  int prev = 1;
-  for(int i = 0; i < 10; i++){
+  for(int i = 0; i < num_bytes; i++){
 
     while (prev == digitalRead(clock_pin)){} //detects change in clock
     prev = digitalRead(clock_pin);
@@ -46,9 +27,9 @@ void sendData10(int cmd_do[]) {
 }
 
 void initLEDs(){
-  sendData10(start_cmd);
+  sendData(start_cmd, 10);
   delay(50);
-  sendData10(power_cmd);
+  sendData(power_cmd, 10);
   delay(50);
 }
 
@@ -69,7 +50,7 @@ void loop() {
   if(sync_enable==0) {
     sync_enable = 1;
     Serial.println("Synchronizing...");
-    sendData11(sync_cmd);
+    sendData(sync_cmd, 11);
     delay(3000);
   }
 }
